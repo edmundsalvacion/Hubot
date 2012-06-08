@@ -43,6 +43,10 @@ module.exports = (robot) ->
     memeGenerator msg, 121, 1031, msg.match[1], msg.match[2], (url) ->
       msg.send url
 
+  robot.hear /(.*): FAILURE/i, (msg) ->
+    memeGenerator msg, 12270, 1136171, 'BUILD ' + msg.match[1].toUpperCase() + ' WAS BAD', 'AND YOU SHOULD FEEL BAD', (url) ->
+      msg.send url
+
   robot.respond /(.*) (ALL the .*)/i, (msg) ->
     memeGenerator msg, 6013, 1121885, msg.match[1], msg.match[2], (url) ->
       msg.send url
